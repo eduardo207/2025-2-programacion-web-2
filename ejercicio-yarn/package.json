@@ -1,0 +1,14 @@
+{
+  "name": "ejercicio-yarn",
+  "version": "1.0.0",
+  "description": "Ejercicio con Yarn",
+  "main": "index.js",
+  "author": "Eduardo Quiñonez",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "cowsay": "^1.6.0",
+    "dayjs": "^1.11.13"
+  }
+}
