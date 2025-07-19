@@ -1,0 +1,21 @@
+{
+  "name": "ejercicio-npm",
+  "version": "1.0.0",
+  "description": "Ejercicio para aprender npm",
+  "keywords": [
+    "npm",
+    "programacion-web-2"
+  ],
+  "license": "ISC",
+  "author": "Eduardo Quiñonez",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "5.4.1",
+    "cowsay": "1.6.0",
+    "dayjs": "1.11.13"
+  }
+}
