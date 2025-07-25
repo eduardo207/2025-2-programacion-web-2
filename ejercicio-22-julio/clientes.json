@@ -1,0 +1,33 @@
+{
+  "nombre": "Jerson Eduardo Quiñonez",
+  "fechaNacimiento": "20/07/1988",
+  "edad": 37,
+  "clienteVIP": true,
+  "direccion" : {
+    "pais": "Guatemala",
+    "departamento": "Guatemala",
+    "municipio": "Guatemala",
+    "direccion": "6a. Avenida 1-23, Zona 10"
+  },
+  "telefonos": [
+    {
+      "codigoArea": 502,
+      "numero": "12345678",
+      "tipo": "Celular personal"
+    },
+    {
+      "codigoArea": 502,
+      "numero": "87654321",
+      "tipo": "Celular trabajo"
+    },
+    {
+      "codigoArea": 502,
+      "numero": "78311234",
+      "tipo": "Numero residencial"
+    }
+  ],
+  "facturacion": {
+    "nit": "12345678-9",
+    "direccionFacturacion": "16 Avenida 14-3, Zona 5",
+  }
+}
