@@ -5,13 +5,8 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 
-/*
+// Ruta para obtener todos los clientes
 app.get('/api/clients',(req, res) => {
-  
-  const name = req.query.name;
-  let welcomeMessage = 'Bienvenido usuario: ' + name;
-  console.log(welcomeMessage);
-
   let response = {
     message: "success",
     data: {
@@ -20,20 +15,46 @@ app.get('/api/clients',(req, res) => {
     }
   };
   res.status(200).json(response);
-})*/
+})
 
-app.get('/api/clients',(req, res) => {
-  
-  const id = req.query.id;
+// Ruta para obtener un cliente por PARAM ID
+app.get('/api/clients/:id',(req, res) => {
+  // obtención por param id
+  const id = req.params.id;
+  // obtención por query id
+  // const id = req.query.id;
   const client = clients.find(c => c.id == id);
+  let response = {};
+  if (!client){
+    response = {
+      message: "cliente no encontrado"
+    }
+    return res.status(404).json(response);
+  }
 
-  let response = {
+  response = {
     message: "success",
     data: client
   };
-  res.status(200).json(response);
+
+  return res.status(200).json(response);
 })
 
+// Ruta opara implementar el POST de client
+app.post('/api/clients',(req, res) => {
+  const newClient = req.body;
+  
+  newClient.id = Number(`${Date.now()}`);
+  clients.push(newClient);
+
+  let response = {
+    message: "success",
+    data: {
+      clientId: newClient.id,
+    }
+  }
+  return res.status(201).json(response);
+})
 
 app.listen(port, () => console.log('Servidor iniciado'));
 
