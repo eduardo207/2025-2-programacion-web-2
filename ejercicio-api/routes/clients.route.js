@@ -1,3 +1,4 @@
+//import express from 'express';
 import { Router } from 'express';
 import { 
   getClientsHandler, 
@@ -7,6 +8,7 @@ import {
 } from '../controllers/clients.controller.js';
 
 const router = Router();
+//const router = express.Router();
 
 router.get('/', getClientsHandler);
 router.get('/:id', getClientHandlerByParam);
