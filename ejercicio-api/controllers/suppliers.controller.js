@@ -15,7 +15,6 @@ const supplierSchema = Joi.object({
   email: Joi.string().email().required()
 })
 
-
 //Handler para el metodo get de todos los suppliers
 const getSuppliersHandler = async (req, res) => {
   try{
