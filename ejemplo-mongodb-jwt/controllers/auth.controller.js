@@ -1,6 +1,7 @@
 import { responseSuccess, responseError } from '../helpers/response.helper.js';
 import joi from 'joi';
 import { login } from '../services/auth.service.js'
+import { verifyAccessToken } from '../helpers/auth.helper.js'
 
 const schemaAuth = joi.object({
   email: joi.string().email().required(),
@@ -37,6 +38,23 @@ const loginHandler = async (req, res) => {
   }
 }
 
+const verifyTokenHandler = () => {
+  return async (req, res, next) => {
+      try {
+        const auth = req.header('Authorization');
+        const token = auth.startsWith('Bearer ') ? auth.slice(7) : null;
+        if (!token) return res.status(401).json({ error: 'Bearer token no enviado' });
+  
+        await verifyAccessToken(token);
+        
+        next();
+      } catch (err) {
+        return res.status(401).json(responseError('Token invalido o expirado'));
+      }
+    };
+}
+
 export { 
-  loginHandler
+  loginHandler,
+  verifyTokenHandler
 };

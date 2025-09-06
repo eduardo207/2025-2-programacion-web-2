@@ -1,5 +1,5 @@
 import { getDb } from '../configs/mongodb.config.js';
-import { issueAccessToken, verifyAccessToken } from '../helpers/auth.helper.js'
+import { issueAccessToken } from '../helpers/auth.helper.js'
 
 const login = async (data) => {
   const db = getDb();

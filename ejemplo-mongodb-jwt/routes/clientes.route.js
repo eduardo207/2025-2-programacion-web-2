@@ -4,8 +4,12 @@ import {
   postClienteHandler,
 } from '../controllers/clientes.controller.js';
 
+import { 
+  verifyTokenHandler
+} from '../controllers/auth.controller.js';
+
 const router = Router();
-router.get('/', getClientesHandler);
-router.post('/', postClienteHandler);
+router.get('/', verifyTokenHandler(), getClientesHandler);
+router.post('/', verifyTokenHandler() ,postClienteHandler);
 
 export default router;
