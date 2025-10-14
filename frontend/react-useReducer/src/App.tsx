@@ -19,14 +19,16 @@ function reducer(state: State, action: Action): State {
         contador: state.contador + 1,
         historial: [...state.historial, 'INC'],
       };  
-      break;
     case 'DEC':
       return {
         ...state,
         contador: state.contador - 1,
         historial: [...state.historial, 'DEC'],
       };
-      break;
+    default:
+      return {
+        ...state,
+      };
   }
 }
 
