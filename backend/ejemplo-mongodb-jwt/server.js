@@ -2,14 +2,17 @@ import express from 'express';
 import routes from './routes/index.route.js';
 import dotenv from 'dotenv';
 import { connectToMongo } from './configs/mongodb.config.js';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
+app.use(cors()); 
 const port = process.env.PORT;
 app.use(express.json());
 
 app.use("/",routes);
+
 
 const startServer = async () => {
   try {
